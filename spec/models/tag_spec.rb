@@ -7,4 +7,10 @@ describe Tag do
     it { should have_many(:job_tags)}
     it { should have_many(:jobs).through(:job_tags)}
   end
+
+  describe "count" do
+    tag = create(:tag_with_jobs, job_count: 3)
+    
+    expect(tag.count).to eq(3)
+
 end
