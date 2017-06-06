@@ -3,6 +3,8 @@ require 'rails_helper'
 describe Job do
   describe "validations" do
     context "invalid attributes" do
+      it { should have_many(:job_tags) }
+      it { should have_many(:tags).through(:job_tags) }
       it "is invalid without a title" do
         job = Job.new(level_of_interest: 80, description: "Wahoo", city: "Denver")
         expect(job).to be_invalid
