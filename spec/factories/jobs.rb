@@ -15,6 +15,7 @@ FactoryGirl.define do
     title
     level_of_interest
     city
+    company
 
     factory :job_with_tags do
       
@@ -27,3 +28,5 @@ FactoryGirl.define do
       end
     end
   end
+end
+
