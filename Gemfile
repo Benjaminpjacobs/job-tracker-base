@@ -40,6 +40,7 @@ group :development, :test do
   gem 'pry-state'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :development do
