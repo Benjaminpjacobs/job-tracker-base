@@ -1,16 +1,14 @@
 class JobsController < ApplicationController
+  before_action :set_company, only: [:index, :new, :create]
   def index
-    @company = Company.find(params[:company_id])
     @jobs = @company.jobs
   end
 
   def new
-    @company = Company.find(params[:company_id])
     @job = Job.new()
   end
 
   def create
-    @company = Company.find(params[:company_id])
     @job = @company.jobs.new(job_params)
     if @job.save
       flash[:success] = "You created #{@job.title} at #{@company.name}"
@@ -40,5 +38,9 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :description, :level_of_interest, :city)
+  end
+
+  def set_company
+    @company = Company.find(params[:company_id])
   end
 end
