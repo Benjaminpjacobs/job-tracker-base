@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_company, only: [:index, :new, :create]
+  
   def index
     @jobs = @company.jobs
   end

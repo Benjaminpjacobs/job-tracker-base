@@ -10,8 +10,6 @@ describe "As a user" do
     end
     
     it "can see a tags associated with job" do
-
-
       visit company_job_path(@company, @job)
       
       expect(page).to have_content(@tag1.name)
@@ -25,6 +23,11 @@ describe "As a user" do
       visit company_job_path(@company, @job)
       expect(page).to have_content("#{@tag1.name}: 2")
       expect(page).to have_content("#{@tag2.name}: 1")
+
+      visit company_job_path(@company, job2)
+      expect(page).to have_content("#{@tag1.name}: 2")
+      expect(page).to_not have_content("#{@tag2.name}: 1")
+
     end
   end
 end
