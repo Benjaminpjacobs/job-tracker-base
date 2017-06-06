@@ -8,12 +8,12 @@ describe Tag do
     it { should have_many(:jobs).through(:job_tags)}
   end
 
-  describe "count" do
+  describe "count_jobs" do
     it "can count its jobs" do
       tag = create(:tag_with_jobs, job_count: 3)
       tag2 = create(:tag_with_jobs, job_count: 2)
 
-      expect(tag.count).to eq(3)
+      expect(tag.count_jobs).to eq(3)
     end
   end
 end
