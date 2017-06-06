@@ -9,8 +9,10 @@ describe Tag do
   end
 
   describe "count" do
-    tag = create(:tag_with_jobs, job_count: 3)
-    
-    expect(tag.count).to eq(3)
-
+    it "can count its jobs" do
+      tag = create(:tag_with_jobs, job_count: 3)
+      
+      expect(tag.count).to eq(3)
+    end
+  end
 end
